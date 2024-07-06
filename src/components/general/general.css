@@ -1,0 +1,129 @@
+/* Search Bar */
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.search-bar {
+    border-radius: 0.9rem;
+    background: #2C2C2C;
+    padding: 0.4rem 1.5rem;
+    width: fit-content;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search-icon {
+    color: rgba(255, 255, 255, 0.6);
+    width: 1.4rem;
+    height: 1.4rem;
+    position: absolute;
+    left: 0.8rem;
+    pointer-events: none;
+    transition: color 0.3s;
+}
+
+.search-bar-container input:hover {
+    cursor: pointer;
+}
+
+.search-bar-container input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s;
+}
+
+.search-bar-container input:hover::placeholder {
+    color: #ffffff
+}
+
+.search-bar-container:hover .search-icon {
+    color: #ffffff;
+}
+
+/* Buttons */
+
+.button {
+    background-color: #BB000E;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: 1.18rem;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #ff3333;
+    cursor: pointer;
+}
+
+.sign-on-button {
+    background-color: #BB000E;
+    color: white;
+    font-size: 1.8rem;
+    padding: 0.5rem 1rem;
+    border: none;
+}
+
+.sign-on-button:hover {
+    background-color: #ff3333;
+    cursor: pointer;
+}
+
+.button-icon {
+    margin-left: 0.18rem;
+    margin-right: 0.8rem;
+}
+
+/* Input */
+
+.input-container {
+    text-align: start;
+    max-width: fit-content;
+}
+
+.input-label {
+    text-align: start;
+    font-size: 1.18rem;
+}
+
+.input-label-container {
+    margin-bottom: 0.18rem;
+    display: flex;
+}
+
+.input-icon {
+    margin-right: 0.4rem;
+    color: #BB000E;
+    width: 1.18rem;
+    height: 1.4rem;
+}
+
+.input-container input[type='text'] {
+    font-size: 1.18rem;
+    padding: 0.18rem;
+    max-width: fit-content;
+    border: none;
+    border-bottom: 0.12rem solid #BB000E;
+}
+
+.input-container input[type='number'] {
+    font-size: 1.18rem;
+    padding: 0.18rem;
+    color: white;
+    width: min-content;
+    border: none;
+    border-bottom: 0.12rem solid #BB000E;
+    background-color: #2C2C2C;
+}
+
+.number-label {
+    color: white;
+}
