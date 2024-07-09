@@ -1,0 +1,56 @@
+/* navigation.css */
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #161616;
+    color: white;
+}
+
+.left h1 {
+    margin: 0;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border: 0.2rem solid #BB000E;
+}
+
+.right p {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+}
+
+.logout {
+    cursor: pointer;
+    color: #BB000E;
+    font-weight: bold;
+    align-items: center;
+    display: flex;
+}
+
+.nav-container img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logout:hover {
+    color: #ff3333;
+}
+
+.logout-icon {
+    margin-right: 5px;
+    margin-top: 4px;
+}
