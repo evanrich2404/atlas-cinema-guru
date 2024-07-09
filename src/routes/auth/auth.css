@@ -1,0 +1,103 @@
+/* Buttons */
+
+.button {
+    background-color: #BB000E;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: 1.18rem;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #ff3333;
+    cursor: pointer;
+}
+
+.sign-in-button, .sign-up-button {
+    background-color: #BB000E;
+    color: white;
+    font-size: 1.8rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    width: 50%;
+    text-align: center;
+}
+
+.sign-in-button:hover, .sign-up-button:hover {
+    background-color: #ff3333;
+    cursor: pointer;
+}
+
+/* Authentication Card */
+.auth-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-form label {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.input-group .icon {
+    margin-right: 0.5rem;
+}
+
+.show-password {
+    position: relative;
+}
+
+.show-password .toggle {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color: #BB000E;
+    color: #BB000E;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: 1.18rem;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button button:hover {
+    background-color: #ff3333;
+    cursor: pointer;
+}
