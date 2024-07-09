@@ -1,28 +1,13 @@
 import React, { useState } from 'react';
 import './auth.css';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-const Register = ({ username, password, setUsername, setPassword, setIsLoggedIn, setUserUsername }) => {
+const Register = ({ username, password, setUsername, setPassword }) => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('/api/auth/register', { username, password });
-      const { accessToken, message } = response.data;
-      localStorage.setItem('accessToken', accessToken);
-      setUserUsername(username);
-      setIsLoggedIn(true);
-      console.log(message);
-    } catch (error) {
-      console.error('Registration failed:', error);
-    }
-  };
-
   return (
-    <form onSubmit={handleRegister} className='auth-form'>
+    <div className='auth-form'>
       <label>Create a new account</label>
       <div className='input-group'>
         <FontAwesomeIcon icon={faUser} className='icon' />
@@ -52,7 +37,7 @@ const Register = ({ username, password, setUsername, setPassword, setIsLoggedIn,
       <div className='submit-button'>
         <button type='submit'>Sign Up</button>
       </div>
-    </form>
+    </div>
   );
 };
 

@@ -25,8 +25,12 @@
 }
 
 .sign-in-button:hover, .sign-up-button:hover {
-    background-color: #ff3333;
+    background-color: #ff6666;
     cursor: pointer;
+}
+
+.sign-in-button:active, .sign-up-button:active {
+    background-color: #ff3333;
 }
 
 /* Authentication Card */
