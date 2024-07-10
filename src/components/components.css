@@ -1,0 +1,11 @@
+/* styles for Activity component and other miscellaneous components */
+.activity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.activity p {
+    margin: 0;
+    font-size: 0.9rem;
+}
