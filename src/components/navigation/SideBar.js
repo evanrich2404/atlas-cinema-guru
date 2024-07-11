@@ -34,8 +34,8 @@ const SideBar = () => {
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const token = localStorage.getItem('accessToken');
-        const response = await axios.get('https://localhost:8000/api/activity', {
+        const token = localStorage.getItem('accessToken'); // Assuming the token is stored in localStorage
+        const response = await axios.get('http://localhost:8000/api/activity', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -43,7 +43,7 @@ const SideBar = () => {
         console.log('API response:', response.data);
         setActivities(response.data);
       } catch (error) {
-        console.error('Error fetching activities', error);
+        console.error('Error fetching activities:', error);
       }
     };
 
@@ -95,7 +95,7 @@ const SideBar = () => {
           <ul className="activity-list">
             {activities.slice(0, 10).map((activity, index) => (
               <Activity
-                key={index}
+                key={`${activity.id}-${index}`}
                 userUsername={activity.userUsername}
                 title={activity.title}
                 date={activity.date}

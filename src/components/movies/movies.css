@@ -1,0 +1,50 @@
+.tag {
+  display: inline-block;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background-color: #BB000E;
+  color: white;
+  cursor: pointer;
+}
+
+.tag.selected {
+  background-color: #ff3333;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #222222;
+  color: white;
+  border-radius: 10px;
+}
+
+.movie-card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.movie-card .synopsis {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.movie-card .genres {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-card .icon {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
