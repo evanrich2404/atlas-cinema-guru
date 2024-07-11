@@ -4,18 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faClock } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
-const MovieCard = ({
-  movie = {
-    imdbId: '',
-    title: '',
-    synopsis: '',
-    genres: []
-  }
-}) => {
+const MovieCard = ({ movie }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isWatchLater, setIsWatchLater] = useState(false);
 
   useEffect(() => {
+    console.log('Movie data:', movie); // Log movie data to debug
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('accessToken');
@@ -38,7 +32,7 @@ const MovieCard = ({
     };
 
     fetchData();
-  }, [movie.imdbId]);
+  }, [movie, movie.imdbId]);
 
   const handleClick = async (type) => {
     try {

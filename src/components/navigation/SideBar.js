@@ -93,14 +93,17 @@ const SideBar = () => {
             <p>Latest Activities</p>
           </div>
           <ul className="activity-list">
-            {activities.slice(0, 10).map((activity, index) => (
-              <Activity
-                key={`${activity.id}-${index}`}
-                userUsername={activity.userUsername}
-                title={activity.title}
-                date={activity.date}
-              />
-            ))}
+            {activities.slice(0, 10).map((activity, index) => {
+              console.log('Rendering activity:', activity);
+              return (
+                <Activity
+                  key={`${activity.id}-${index}`}
+                  userUsername={activity.userUsername || 'Unknown User'}
+                  title={activity.title?.title || 'Unknown Title'} // Adjust according to the actual data structure
+                  date={new Date(activity.createdAt).toLocaleDateString() || 'Unknown Date'}
+                />
+              );
+            })}
           </ul>
         </>
       )}
