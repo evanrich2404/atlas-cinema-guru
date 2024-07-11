@@ -1,12 +1,19 @@
 import React from 'react';
 import './components.css';
 
-const Activity = ({ activity }) => {
-    return (
-        <li className="activity">
-            <p>{activity}</p>
-        </li>
-    );
+function Activity({ userUsername, title, date }) {
+
+  return (
+    <li className="activity">
+      <p>
+        <span className="activity-red">{userUsername} </span>
+        added
+        <span className="activity-red"> {title} </span>
+        to watch later -
+        <span className="activity-italics"> {date}</span>
+      </p>
+    </li>
+  );
 };
 
 export default Activity;

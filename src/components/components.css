@@ -1,11 +1,15 @@
 /* styles for Activity component and other miscellaneous components */
-.activity {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+.activity-red {
+    color: #BB000E;
+    font-weight: bold;
 }
 
-.activity p {
-    margin: 0;
-    font-size: 0.9rem;
+.activity-italics {
+    font-style: italic;
 }
+
+.activity {
+    list-style-type: none;
+    margin: 5px 0;
+}
+

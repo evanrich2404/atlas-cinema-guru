@@ -57,16 +57,17 @@
 
 /* Sidebar styles */
 .sidebar {
-    width: 250px;
-    background-color: #333;
+    width: 40px;
+    background-color: #BB000E;
     color: #fff;
-    height: 100%;
-    padding: 20px;
+    height: 100vh;
+    padding-top: 10px;
     transition: width 0.3s ease;
+    overflow: hidden;
 }
 
-.sidebar.small {
-    width: 80px;
+.sidebar .small:hover {
+    width: 250px;
 }
 
 .navigation {
@@ -78,20 +79,59 @@
 .navigation li {
     padding: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .navigation li.selected {
-    background-color: #444;
+    background-color: #ff3333;
 }
 
-.icon-home, .icon-favorites, .icon-watchlater {
+.navigation li .fa-folder,
+.navigation li .fa-star,
+.navigation li .fa-clock {
     margin-right: 10px;
 }
 
+.navigation li span {
+    margin-left: 10px;
+}
+
+.arrow {
+    position: absolute;
+    right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.latest-activities {
+    margin-top: 10px;
+    margin: 5px;
+    background-color: #2C2C2C;
+    justify-content: start;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.latest-activities p {
+    color: white;
+    text-decoration: underline white solid;
+    white-space: nowrap;
+    font-size: 24px;
+    padding: 10px;
+    margin: 0;
+}
+
 .activity-list {
-    margin-top: 20px;
+    margin-top: 10px;
     list-style: none;
     padding: 0;
+    background-color: #2C2C2C;
 }
 
 button {

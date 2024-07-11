@@ -9,6 +9,18 @@
     flex-grow: 1;
 }
 
+.sidebar {
+    width: 40px; /* Slim width when small */
+    background-color: #BB000E;
+    color: #fff;
+    height: 100vh;
+    transition: width 0.3s ease;
+}
+
+.sidebar:hover {
+    width: 250px; /* Expand width on hover */
+}
+
 .content {
     flex: 1;
     padding: 20px;

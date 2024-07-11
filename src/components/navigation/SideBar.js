@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './navigation.css';
 import Activity from '../Activity';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFolder, faStar, faClock, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const SideBar = () => {
   const [selected, setSelected] = useState("home");
@@ -30,36 +32,77 @@ const SideBar = () => {
   };
 
   useEffect(() => {
-    axios.get('/api/activity')
-      .then(response => {
-        setActivities(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching activities:', error);
+    const fetchActivities = async () => {
+      try {
+        const token = localStorage.getItem('accessToken');
+        const response = await axios.get('https://localhost:8000/api/activity', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         });
+        console.log('API response:', response.data);
+        setActivities(response.data);
+      } catch (error) {
+        console.error('Error fetching activities', error);
+      }
+    };
+
+    fetchActivities();
   }, []);
 
+  useEffect(() => {
+    if (!small) {
+      setShowActivities(true);
+    } else {
+      setShowActivities(false);
+    }
+  }, [small]);
+
   return (
-    <nav className={`sidebar ${small ? 'small' : ''}`}>
-      <button onClick={() => setSmall(!small)}>Toggle Size</button> {/* Toggle button */}
+    <nav
+      className={`sidebar ${small ? 'small' : ''}`}
+      onMouseEnter={() => setSmall(false)}
+      onMouseLeave={() => setSmall(true)}
+    >
       <ul className="navigation">
         <li onClick={() => setPage("home")} className={selected === "home" ? "selected" : ""}>
-          <i className="icon-home"></i> Home
+          <FontAwesomeIcon icon={faFolder} />
+          {!small && <span>Home</span>}
+          {!small && selected === "home" && (
+            <FontAwesomeIcon icon={faArrowRight} className="arrow visible" />
+          )}
         </li>
         <li onClick={() => setPage("favorites")} className={selected === "favorites" ? "selected" : ""}>
-          <i className="icon-favorites"></i> Favorites
+          <FontAwesomeIcon icon={faStar} />
+          {!small && <span>Favorites</span>}
+          {!small && selected === "favorites" && (
+            <FontAwesomeIcon icon={faArrowRight} className="arrow visible" />
+          )}
         </li>
         <li onClick={() => setPage("watchlater")} className={selected === "watchlater" ? "selected" : ""}>
-          <i className="icon-watchlater"></i> Watch Later
+          <FontAwesomeIcon icon={faClock} />
+          {!small && <span>Watch Later</span>}
+          {!small && selected === "watchlater" && (
+            <FontAwesomeIcon icon={faArrowRight} className="arrow visible" />
+          )}
         </li>
       </ul>
-      <button onClick={() => setShowActivities(!showActivities)}>Toggle Activities</button> {/* Toggle button */}
-      {showActivities && ( // Conditional rendering based on showActivities state
-        <ul className="activity-list">
-          {activities.slice(0, 10).map((activity, index) => (
-            <Activity key={index} activity={activity} />
-          ))}
-        </ul>
+      {showActivities && (
+        <>
+          <div className='latest-activities'>
+            <p>Latest Activities</p>
+          </div>
+          <ul className="activity-list">
+            {activities.slice(0, 10).map((activity, index) => (
+              <Activity
+                key={index}
+                userUsername={activity.userUsername}
+                title={activity.title}
+                date={activity.date}
+              />
+            ))}
+          </ul>
+        </>
       )}
     </nav>
   );
